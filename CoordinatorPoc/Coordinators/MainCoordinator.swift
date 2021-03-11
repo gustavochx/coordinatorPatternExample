@@ -34,8 +34,8 @@ class MainCoordinator: Coordinator {
                           completion: nil)
     }
 
-    private func instantiateViewController() -> ViewController {
-        return ViewController()
+    private func instantiateViewController() -> MainViewController {
+        return MainViewController()
     }
 
     
