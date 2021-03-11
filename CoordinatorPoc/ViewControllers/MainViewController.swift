@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, ReusableView {
 
     override func viewDidLoad() {
         super.viewDidLoad()

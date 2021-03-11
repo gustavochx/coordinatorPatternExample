@@ -35,7 +35,7 @@ class MainCoordinator: Coordinator {
     }
 
     private func instantiateViewController() -> MainViewController {
-        return MainViewController()
+        return MainViewController(nibName: MainViewController.reusableIdentifier, bundle: .main)
     }
 
     
