@@ -7,11 +7,23 @@
 
 import UIKit
 
+
+public protocol MainViewControllerDelegate: class {
+    func navigateToModuleViewController()
+}
+
 class MainViewController: UIViewController, ReusableView {
+
+    weak var delegate: MainViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "MainViewController"
     }
+
+    @IBAction func onPressGoToViewModuleButton(_ sender: Any) {
+        self.delegate?.navigateToModuleViewController()
+    }
+
 }

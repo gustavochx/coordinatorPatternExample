@@ -9,11 +9,12 @@ import UIKit
 
 protocol Coordinator: class {
 
-    var delegate: AppDelegate? { get set }
-    var window : UIWindow { get set }
+    var childCoordinators: [Coordinator] { get set}
+    var navigationController: UINavigationController { get set}
+
+    init(navigationController: UINavigationController)
 
     func start()
-    init(delegate:AppDelegate,window: UIWindow)
 }
 
 

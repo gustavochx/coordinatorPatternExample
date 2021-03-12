@@ -8,13 +8,12 @@
 import UIKit
 
 class MainCoordinator: Coordinator {
-    
-    var delegate: AppDelegate?
-    var window: UIWindow
 
-    required init(delegate: AppDelegate, window: UIWindow) {
-        self.delegate = delegate
-        self.window = window
+    var childCoordinators: [Coordinator] = []
+    var navigationController: UINavigationController
+
+    required init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
 
     func start() {
@@ -22,21 +21,31 @@ class MainCoordinator: Coordinator {
     }
 
     func navigationToFirstController(showSignIn: Bool = false) {
-
-        let navigationController = UINavigationController(rootViewController: instantiateViewController())
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
-
-        UIView.transition(with: window,
-                          duration: 0.4,
-                          options: .transitionCurlDown,
-                          animations: nil,
-                          completion: nil)
+        let mainViewController = instantiateViewController()
+        mainViewController.delegate = self
+        navigationController = UINavigationController(rootViewController: mainViewController)
     }
 
     private func instantiateViewController() -> MainViewController {
         return MainViewController(nibName: MainViewController.reusableIdentifier, bundle: .main)
     }
 
-    
+}
+
+extension MainCoordinator: MainViewControllerDelegate {
+
+    func navigateToModuleViewController() {
+        let moduleCoordinator = ModuleCoordinator(navigationController: self.navigationController)
+        moduleCoordinator.delegate = self
+        childCoordinators.append(moduleCoordinator)
+        moduleCoordinator.start()
+    }
+}
+
+extension MainCoordinator: BackToMainModuleDelegate {
+
+    func navigateToMainModule(newOrderCoordinator: ModuleCoordinator) {
+        navigationController.popViewController(animated: true)
+        childCoordinators.removeLast()
+    }
 }
