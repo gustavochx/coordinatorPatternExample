@@ -6,20 +6,23 @@
 //
 
 import UIKit
+import Security
 
-public protocol ModuleViewControllerDelegate: class {
+
+public protocol BackToMainFlowDelegate: class {
     func backToMainModule()
 }
 
-class ModuleViewController: UIViewController, ReusableView {
+class ModuleViewController: UIViewController, Instantiabled {
 
-
-    public weak var delegate: ModuleViewControllerDelegate?
+    public weak var delegate: BackToMainFlowDelegate?
+    public lazy var viewModel: ModuleViewModel = ModuleViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "ModuleViewController"
+
     }
 
     private func createBarButtomItem() {

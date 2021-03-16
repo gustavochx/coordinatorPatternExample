@@ -8,10 +8,9 @@
 import UIKit
 
 
-protocol BackToMainModuleDelegate: class {
-    func navigateToMainModule(newOrderCoordinator: ModuleCoordinator)
+protocol BackToMainFlow: class {
+    func navigateToMainModule()
 }
-
 
 class ModuleCoordinator: Coordinator {
 
@@ -19,29 +18,31 @@ class ModuleCoordinator: Coordinator {
     var navigationController: UINavigationController
 
     //MARK: BackToMainModule delegate variable
-    weak var delegate: BackToMainModuleDelegate?
+    weak var flow: BackToMainFlow?
 
     required init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 
     func start() {
-        let moduleMainViewController = instantiateModuleMainViewController()
+        let moduleMainViewController = ModuleViewController.instantiate()
         moduleMainViewController.delegate = self
         self.navigationController.pushViewController(moduleMainViewController, animated: true)
     }
 
-    private func instantiateModuleMainViewController() -> ModuleViewController {
-        return ModuleViewController.init(nibName: ModuleViewController.reusableIdentifier, bundle: .main)
+    func startWithMerchantId(merchantId: String) {
+        let moduleMainViewController = ModuleViewController.instantiate()
+        moduleMainViewController.viewModel.merchantId = merchantId
+        moduleMainViewController.delegate = self
+        self.navigationController.pushViewController(moduleMainViewController, animated: true)
     }
-
+    
 }
 
-
-extension ModuleCoordinator: ModuleViewControllerDelegate {
+extension ModuleCoordinator: BackToMainFlowDelegate {
 
     func backToMainModule() {
-        self.delegate?.navigateToMainModule(newOrderCoordinator: self)
+        self.flow?.navigateToMainModule()
     }
     
 }

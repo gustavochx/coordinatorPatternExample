@@ -14,3 +14,5 @@ extension ReusableView {
         return String(describing: self)
     }
 }
+
+extension UIViewController: ReusableView {}

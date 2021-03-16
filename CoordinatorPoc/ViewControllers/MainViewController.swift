@@ -8,13 +8,14 @@
 import UIKit
 
 
-public protocol MainViewControllerDelegate: class {
+public protocol MainFlow: class {
     func navigateToModuleViewController()
+
 }
 
-class MainViewController: UIViewController, ReusableView {
+class MainViewController: UIViewController, Instantiabled {
 
-    weak var delegate: MainViewControllerDelegate?
+    weak var flow: MainFlow?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,7 @@ class MainViewController: UIViewController, ReusableView {
     }
 
     @IBAction func onPressGoToViewModuleButton(_ sender: Any) {
-        self.delegate?.navigateToModuleViewController()
+        self.flow?.navigateToModuleViewController()
     }
 
 }

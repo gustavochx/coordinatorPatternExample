@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainCoordinator: Coordinator {
+class MainAppCoordinator: Coordinator {
 
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
@@ -21,31 +21,34 @@ class MainCoordinator: Coordinator {
     }
 
     func navigationToFirstController(showSignIn: Bool = false) {
-        let mainViewController = instantiateViewController()
-        mainViewController.delegate = self
+        let mainViewController = MainViewController.instantiate()
+        mainViewController.flow = self
         navigationController = UINavigationController(rootViewController: mainViewController)
     }
 
-    private func instantiateViewController() -> MainViewController {
-        return MainViewController(nibName: MainViewController.reusableIdentifier, bundle: .main)
-    }
-
 }
 
-extension MainCoordinator: MainViewControllerDelegate {
+extension MainAppCoordinator: MainFlow {
+
+    func add(childCoordinator: Coordinator) {
+        self.childCoordinators.append(childCoordinator)
+    }
 
     func navigateToModuleViewController() {
         let moduleCoordinator = ModuleCoordinator(navigationController: self.navigationController)
-        moduleCoordinator.delegate = self
+        moduleCoordinator.flow = self
         childCoordinators.append(moduleCoordinator)
-        moduleCoordinator.start()
+
+        moduleCoordinator.startWithMerchantId(merchantId: "hu3")
+//        moduleCoordinator.start()
     }
 }
 
-extension MainCoordinator: BackToMainModuleDelegate {
+extension MainAppCoordinator: BackToMainFlow {
 
-    func navigateToMainModule(newOrderCoordinator: ModuleCoordinator) {
+    func navigateToMainModule() {
         navigationController.popViewController(animated: true)
         childCoordinators.removeLast()
     }
+
 }
