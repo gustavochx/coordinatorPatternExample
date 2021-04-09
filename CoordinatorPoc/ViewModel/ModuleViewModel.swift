@@ -10,5 +10,5 @@ import Foundation
 class ModuleViewModel {
 
     var merchantId: String?
-
+    var name: String?
 }

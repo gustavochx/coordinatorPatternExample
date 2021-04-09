@@ -8,13 +8,13 @@
 import UIKit
 
 public protocol MainFlow: class {
-    func navigateToModuleViewController()
+    func navigateToModuleViewController(name: String)
 }
 
 class MainViewController: UIViewController, Instantiabled {
 
     weak var flow: MainFlow?
-
+    @IBOutlet weak var nameTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +22,7 @@ class MainViewController: UIViewController, Instantiabled {
     }
 
     @IBAction func onPressGoToViewModuleButton(_ sender: Any) {
-        self.flow?.navigateToModuleViewController()
+        self.flow?.navigateToModuleViewController(name: nameTextField.text ?? "Não preencheu o nome")
     }
 
 }

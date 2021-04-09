@@ -21,6 +21,10 @@
 		2B1E5CCB25FBDDC60073048D /* Instantiated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E5CCA25FBDDC60073048D /* Instantiated.swift */; };
 		2B1E5CD725FBE8560073048D /* ModuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E5CD625FBE8560073048D /* ModuleViewModel.swift */; };
 		2B1E5CDC25FBEAAE0073048D /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E5CDB25FBEAAE0073048D /* Input.swift */; };
+		D42D1AB8261F7B2000D980D6 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D42D1AB7261F7B2000D980D6 /* Storyboard.storyboard */; };
+		D42D1ABB261F8B8400D980D6 /* ThirdScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D1ABA261F8B8400D980D6 /* ThirdScreenViewController.swift */; };
+		D42D1ABE261F8E2600D980D6 /* ThirdScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D1ABD261F8E2600D980D6 /* ThirdScreenCoordinator.swift */; };
+		D4E7A8D22620CEF2006A6FA7 /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7A8D12620CEF2006A6FA7 /* StoryboardName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		2B1E5CCA25FBDDC60073048D /* Instantiated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instantiated.swift; sourceTree = "<group>"; };
 		2B1E5CD625FBE8560073048D /* ModuleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleViewModel.swift; sourceTree = "<group>"; };
 		2B1E5CDB25FBEAAE0073048D /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
+		D42D1AB7261F7B2000D980D6 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		D42D1ABA261F8B8400D980D6 /* ThirdScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdScreenViewController.swift; sourceTree = "<group>"; };
+		D42D1ABD261F8E2600D980D6 /* ThirdScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdScreenCoordinator.swift; sourceTree = "<group>"; };
+		D4E7A8D12620CEF2006A6FA7 /* StoryboardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,7 @@
 		1922F17225FA5EE70005C43B /* CoordinatorPoc */ = {
 			isa = PBXGroup;
 			children = (
+				D4E7A8D02620CEE2006A6FA7 /* Enum */,
 				2B1E5CDA25FBEAA40073048D /* Model */,
 				2B1E5CD525FBE84C0073048D /* ViewModel */,
 				1922F1A125FA98D50005C43B /* Extension */,
@@ -91,6 +100,7 @@
 				1922F19025FA6E030005C43B /* Coordinator.swift */,
 				1922F19425FA6E610005C43B /* MainAppCoordinator.swift */,
 				2B1E5CBF25FACBE10073048D /* ModuleCoordinator.swift */,
+				D42D1ABD261F8E2600D980D6 /* ThirdScreenCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -102,6 +112,8 @@
 				1922F19D25FA91370005C43B /* MainViewController.xib */,
 				2B1E5CC225FACC830073048D /* ModuleViewController.swift */,
 				2B1E5CC325FACC830073048D /* ModuleViewController.xib */,
+				D42D1ABA261F8B8400D980D6 /* ThirdScreenViewController.swift */,
+				D42D1AB7261F7B2000D980D6 /* Storyboard.storyboard */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -129,6 +141,14 @@
 				2B1E5CDB25FBEAAE0073048D /* Input.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D4E7A8D02620CEE2006A6FA7 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				D4E7A8D12620CEF2006A6FA7 /* StoryboardName.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +212,7 @@
 				1922F19F25FA91370005C43B /* MainViewController.xib in Resources */,
 				2B1E5CC525FACC830073048D /* ModuleViewController.xib in Resources */,
 				1922F17D25FA5EEC0005C43B /* Assets.xcassets in Resources */,
+				D42D1AB8261F7B2000D980D6 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,14 +225,17 @@
 			files = (
 				2B1E5CDC25FBEAAE0073048D /* Input.swift in Sources */,
 				2B1E5CC025FACBE10073048D /* ModuleCoordinator.swift in Sources */,
+				D42D1ABE261F8E2600D980D6 /* ThirdScreenCoordinator.swift in Sources */,
 				1922F19525FA6E610005C43B /* MainAppCoordinator.swift in Sources */,
 				2B1E5CC425FACC830073048D /* ModuleViewController.swift in Sources */,
 				1922F1A325FA98E50005C43B /* ReusableView.swift in Sources */,
 				2B1E5CD725FBE8560073048D /* ModuleViewModel.swift in Sources */,
 				1922F17425FA5EE70005C43B /* AppDelegate.swift in Sources */,
 				1922F19125FA6E030005C43B /* Coordinator.swift in Sources */,
+				D42D1ABB261F8B8400D980D6 /* ThirdScreenViewController.swift in Sources */,
 				2B1E5CCB25FBDDC60073048D /* Instantiated.swift in Sources */,
 				1922F19E25FA91370005C43B /* MainViewController.swift in Sources */,
+				D4E7A8D22620CEF2006A6FA7 /* StoryboardName.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

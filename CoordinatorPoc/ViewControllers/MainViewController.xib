@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="CoordinatorPoc" customModuleProvider="target">
             <connections>
+                <outlet property="nameTextField" destination="z9C-Tk-I0c" id="uxh-ra-VMM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,14 +26,22 @@
                         <action selector="onPressGoToViewModuleButton:" destination="-1" eventType="touchUpInside" id="Myp-L7-rmb"/>
                     </connections>
                 </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Escreva seu nome" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z9C-Tk-I0c">
+                    <rect key="frame" x="107" y="368" width="200" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="z9C-Tk-I0c" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="107" id="IFg-03-3fZ"/>
+                <constraint firstItem="frt-Kv-6yn" firstAttribute="top" secondItem="z9C-Tk-I0c" secondAttribute="bottom" constant="31" id="Ktr-P7-eZD"/>
                 <constraint firstItem="frt-Kv-6yn" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="OAB-Rt-0ed"/>
                 <constraint firstItem="frt-Kv-6yn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Z0z-GW-KSt"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="z9C-Tk-I0c" secondAttribute="trailing" constant="107" id="qsU-zs-rHm"/>
             </constraints>
-            <point key="canvasLocation" x="-223" y="109"/>
+            <point key="canvasLocation" x="-223.18840579710147" y="108.48214285714285"/>
         </view>
     </objects>
     <resources>

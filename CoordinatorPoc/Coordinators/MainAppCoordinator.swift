@@ -30,17 +30,17 @@ class MainAppCoordinator: Coordinator {
 
 extension MainAppCoordinator: MainFlow {
 
-//    func add(childCoordinator: Coordinator) {
-//        self.childCoordinators.append(childCoordinator)
-//    }
+    func add(childCoordinator: Coordinator) {
+        self.childCoordinators.append(childCoordinator)
+    }
 
-    func navigateToModuleViewController() {
+    func navigateToModuleViewController(name: String) {
         let moduleCoordinator = ModuleCoordinator(navigationController: self.navigationController)
         moduleCoordinator.flow = self
         childCoordinators.append(moduleCoordinator)
 
-//        moduleCoordinator.startWithMerchantId(merchantId: "CB200093719")
-        moduleCoordinator.start()
+
+        moduleCoordinator.startWithMerchantId(merchantId: "hu3", name: name)
     }
 }
 
