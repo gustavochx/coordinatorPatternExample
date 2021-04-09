@@ -11,13 +11,17 @@ public protocol BackToSecondScreenDelegate: class {
     func backToSecondModule()
 }
 
+public protocol FlowThirdScreen: class {
+    func navigateToFourthViewController(name: String)
+}
+
 final class ThirdScreenViewController: UIViewController, Instantiabled {
   
     public weak var delegate: BackToSecondScreenDelegate?
     public lazy var viewModel: ModuleViewModel = ModuleViewModel()
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nextScreenButton: UIButton!
-    weak var flow: BackToMainFlowDelegate?
+    weak var flow: FlowThirdScreen?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +38,8 @@ final class ThirdScreenViewController: UIViewController, Instantiabled {
     @objc func backToMainApp() {
         self.delegate?.backToSecondModule()
     }
+    
     @IBAction func nextScreen(_ sender: Any) {
-        
+        self.flow?.navigateToFourthViewController(name: viewModel.name ?? "")
     }
 }

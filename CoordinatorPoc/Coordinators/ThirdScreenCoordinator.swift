@@ -22,25 +22,23 @@ class ThirdScreenCoordinator: Coordinator {
     required init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-
-    func start() {
-        let moduleMainViewController = ThirdScreenViewController.instantiate()
-        moduleMainViewController.delegate = self
-        self.navigationController.pushViewController(moduleMainViewController, animated: true)
-    }
+    
+    func start() {}
 
     func startWithMerchantId(merchantId: String, name: String) {
         let thirdScreenViewController = ThirdScreenViewController.instantiateFrom(storyboardName: StoryboardName.storyboard.rawValue)
         thirdScreenViewController.viewModel.merchantId = merchantId
         thirdScreenViewController.viewModel.name = name
-        thirdScreenViewController.delegate = self
+        thirdScreenViewController.flow = self
         self.navigationController.pushViewController(thirdScreenViewController, animated: true)
     }
     
     
 }
-extension ThirdScreenCoordinator: BackToSecondScreenDelegate {
-    func backToSecondModule() {
-        
+extension ThirdScreenCoordinator: FlowThirdScreen {
+    func navigateToFourthViewController(name: String) {
+        let fourthScreenCoordinator = FourthScreenCoordinator(navigationController: self.navigationController)
+        childCoordinators.append(fourthScreenCoordinator)
+        fourthScreenCoordinator.startWithMerchantId(merchantId: "hu3", name: name)
     }
 }
