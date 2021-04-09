@@ -17,7 +17,6 @@ class ModuleCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
 
-    //MARK: BackToMainModule delegate variable
     weak var flow: BackToMainFlow?
 
     required init(navigationController: UINavigationController) {

@@ -17,4 +17,8 @@ extension Instantiabled where Self: UIViewController {
         return Self(nibName: Self.reusableIdentifier, bundle: .main)
     }
 
+    static func instantiateFrom(storyboardName: String) -> Self {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
+        return storyboard.instantiateViewController(withIdentifier: Self.reusableIdentifier) as! Self
+    }
 }

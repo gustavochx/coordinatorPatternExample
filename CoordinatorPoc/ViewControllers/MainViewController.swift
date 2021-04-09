@@ -7,10 +7,8 @@
 
 import UIKit
 
-
 public protocol MainFlow: class {
     func navigateToModuleViewController()
-
 }
 
 class MainViewController: UIViewController, Instantiabled {

@@ -22,7 +22,6 @@ class ModuleViewController: UIViewController, Instantiabled {
         super.viewDidLoad()
 
         title = "ModuleViewController"
-
     }
 
     private func createBarButtomItem() {

@@ -88,7 +88,7 @@
 		1922F18E25FA6DE90005C43B /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				2B1E5CCE25FBE0A60073048D /* interface */,
+				1922F19025FA6E030005C43B /* Coordinator.swift */,
 				1922F19425FA6E610005C43B /* MainAppCoordinator.swift */,
 				2B1E5CBF25FACBE10073048D /* ModuleCoordinator.swift */,
 			);
@@ -113,14 +113,6 @@
 				2B1E5CCA25FBDDC60073048D /* Instantiated.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		2B1E5CCE25FBE0A60073048D /* interface */ = {
-			isa = PBXGroup;
-			children = (
-				1922F19025FA6E030005C43B /* Coordinator.swift */,
-			);
-			path = interface;
 			sourceTree = "<group>";
 		};
 		2B1E5CD525FBE84C0073048D /* ViewModel */ = {

@@ -20,27 +20,27 @@ class MainAppCoordinator: Coordinator {
         navigationToFirstController()
     }
 
-    func navigationToFirstController(showSignIn: Bool = false) {
+    private func navigationToFirstController(showSignIn: Bool = false) {
         let mainViewController = MainViewController.instantiate()
         mainViewController.flow = self
-        navigationController = UINavigationController(rootViewController: mainViewController)
+        navigationController.viewControllers = [mainViewController]
     }
 
 }
 
 extension MainAppCoordinator: MainFlow {
 
-    func add(childCoordinator: Coordinator) {
-        self.childCoordinators.append(childCoordinator)
-    }
+//    func add(childCoordinator: Coordinator) {
+//        self.childCoordinators.append(childCoordinator)
+//    }
 
     func navigateToModuleViewController() {
         let moduleCoordinator = ModuleCoordinator(navigationController: self.navigationController)
         moduleCoordinator.flow = self
         childCoordinators.append(moduleCoordinator)
 
-        moduleCoordinator.startWithMerchantId(merchantId: "hu3")
-//        moduleCoordinator.start()
+//        moduleCoordinator.startWithMerchantId(merchantId: "CB200093719")
+        moduleCoordinator.start()
     }
 }
 
