@@ -29,15 +29,6 @@ final class ThirdScreenViewController: UIViewController, Instantiabled {
         title = "Storyboard"
         nameLabel.text = viewModel.name
     }
-
-    private func createBarButtomItem() {
-        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backToMainApp))
-        self.navigationItem.leftBarButtonItem = backButton
-    }
-
-    @objc func backToMainApp() {
-        self.delegate?.backToSecondModule()
-    }
     
     @IBAction func nextScreen(_ sender: Any) {
         self.flow?.navigateToFourthViewController(name: viewModel.name ?? "")

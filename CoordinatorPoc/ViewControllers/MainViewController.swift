@@ -22,7 +22,7 @@ class MainViewController: UIViewController, Instantiabled {
     }
 
     @IBAction func onPressGoToViewModuleButton(_ sender: Any) {
-        self.flow?.navigateToModuleViewController(name: nameTextField.text ?? "Não preencheu o nome")
+        self.flow?.navigateToModuleViewController(name: nameTextField.text ?? "")
     }
 
 }

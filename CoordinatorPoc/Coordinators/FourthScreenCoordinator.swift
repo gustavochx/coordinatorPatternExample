@@ -8,11 +8,10 @@
 
 import UIKit
 
-class FourthScreenCoordinator: Coordinator {
+final class FourthScreenCoordinator: Coordinator {
     
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
-    public lazy var viewModel: ModuleViewModel = ModuleViewModel()
 
     required init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -21,7 +20,7 @@ class FourthScreenCoordinator: Coordinator {
     func start() {}
 
     func startWithMerchantId(merchantId: String, name: String) {
-        let fourthScreenViewController = FourthScreenViewController.instantiateViewCode(nibName: nil)
+        let fourthScreenViewController = FourthScreenViewController.instantiateViewCode()
         fourthScreenViewController.viewModel.merchantId = merchantId
         fourthScreenViewController.viewModel.name = name
         self.navigationController.pushViewController(fourthScreenViewController, animated: true)

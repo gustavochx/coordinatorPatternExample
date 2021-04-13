@@ -14,15 +14,18 @@ protocol Instantiabled: class {
 extension Instantiabled where Self: UIViewController {
 
     static func instantiate() -> Self {
-        return Self(nibName: Self.reusableIdentifier, bundle: .main)
+        let name = String(describing: self)
+        let bundle = Bundle(for: self)
+        return Self(nibName: name, bundle: bundle)
     }
     
-    static func instantiateViewCode(nibName: String?) -> Self {
-        return Self(nibName: nibName, bundle: .main)
+    static func instantiateViewCode() -> Self {
+        return Self(nibName: nil, bundle: nil)
     }
 
     static func instantiateFrom(storyboardName: String) -> Self {
-        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
+        let bundle = Bundle(for: self)
+        let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)
         return storyboard.instantiateViewController(withIdentifier: Self.reusableIdentifier) as! Self
     }
 }

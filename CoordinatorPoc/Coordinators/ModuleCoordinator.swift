@@ -53,8 +53,7 @@ extension ModuleCoordinator: FlowModuleCoordinatorDelegate {
     
     func navigateToThirdViewController(name: String) {
         let thirdScreenCoordinator = ThirdScreenCoordinator(navigationController: self.navigationController)
-        thirdScreenCoordinator.flow = self
-        childCoordinators.append(thirdScreenCoordinator)
+        add(childCoordinator: thirdScreenCoordinator)
         thirdScreenCoordinator.startWithMerchantId(merchantId: "hu3", name: name)
     }
 }

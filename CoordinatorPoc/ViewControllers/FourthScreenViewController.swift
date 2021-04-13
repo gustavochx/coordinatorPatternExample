@@ -9,7 +9,7 @@ import UIKit
 
 public protocol FlowFourthScreen: class {}
 
-class FourthScreenViewController: UIViewController, Instantiabled  {
+final class FourthScreenViewController: UIViewController, Instantiabled  {
     
     public lazy var viewModel: ModuleViewModel = ModuleViewModel()
     
