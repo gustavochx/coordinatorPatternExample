@@ -12,7 +12,7 @@ public protocol BackToSecondScreenDelegate: class {
 }
 
 public protocol FlowThirdScreen: class {
-    func navigateToFourthViewController(name: String)
+    func navigateToFourthViewController(parameterViewController: ParameterViewController)
 }
 
 final class ThirdScreenViewController: UIViewController, Instantiabled {
@@ -31,6 +31,7 @@ final class ThirdScreenViewController: UIViewController, Instantiabled {
     }
     
     @IBAction func nextScreen(_ sender: Any) {
-        self.flow?.navigateToFourthViewController(name: viewModel.name ?? "")
+        let parameterViewController = ParameterViewController(merchantId: viewModel.merchantId ?? "", name: viewModel.name ?? "")
+        self.flow?.navigateToFourthViewController(parameterViewController: parameterViewController)
     }
 }

@@ -19,10 +19,10 @@ final class FourthScreenCoordinator: Coordinator {
 
     func start() {}
 
-    func startWithMerchantId(merchantId: String, name: String) {
+    func startWithMerchantId(parameters: Parameters) {
         let fourthScreenViewController = FourthScreenViewController.instantiateViewCode()
-        fourthScreenViewController.viewModel.merchantId = merchantId
-        fourthScreenViewController.viewModel.name = name
+        fourthScreenViewController.viewModel.merchantId = parameters.merchantId
+        fourthScreenViewController.viewModel.name = parameters.name
         self.navigationController.pushViewController(fourthScreenViewController, animated: true)
     }
     

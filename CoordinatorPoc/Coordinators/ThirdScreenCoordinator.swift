@@ -34,9 +34,10 @@ extension ThirdScreenCoordinator: FlowThirdScreen {
         self.childCoordinators.append(childCoordinator)
     }
     
-    func navigateToFourthViewController(name: String) {
+    func navigateToFourthViewController(parameterViewController: ParameterViewController) {
         let fourthScreenCoordinator = FourthScreenCoordinator(navigationController: self.navigationController)
         add(childCoordinator: fourthScreenCoordinator)
-        fourthScreenCoordinator.startWithMerchantId(merchantId: "hu3", name: name)
+        let parameters = Parameters(merchantId: parameterViewController.merchantId, name: parameterViewController.name)
+        fourthScreenCoordinator.startWithMerchantId(parameters: parameters)
     }
 }
